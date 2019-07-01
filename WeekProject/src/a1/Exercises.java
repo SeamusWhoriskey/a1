@@ -1,35 +1,33 @@
 package a1;
 
+// TO SUBMIT: cmd shift .    zip the .git file, then u good
+
+
 import java.util.Arrays;
-import java.util.regex.*;
 
 public class Exercises {
-	
-	public static void main(String[] args) {
-		
-	}
 	
 	//String and Array Exercises
 	/** Returns true if s is the same backwards and forwards */
 	public static boolean isPalindrome(String s) {
 		assert s != null;
+		
 		//Recursive method, but ends if there is one character left OR if there are two characters that are the same
 		if (s.length() == 1 || (s.length() == 2 && (s.charAt(0) == s.charAt(1)))) {
 			return true;
 		}
-		//End the method once the front and back characters do not match
-		if (s.charAt(0) != s.charAt(-1)) {
+		
+		else if (s.charAt(0) != s.charAt(s.length()-1)) {
 			return false;
 		}
 		//Recursive return statement
-		return isPalindrome(s.substring(1, s.length()));
+		return isPalindrome(s.substring(1, s.length()-1));
 	}
 	
+	/** Removes all whitespace and punctuation from a string */
 	public static String normalize(String s) {
 		assert s != null;
-		String h = Arrays.toString(s.split("[\\s\\p{Punct}]"));
-		System.out.println(h);
-		return h;
+		return s.replaceAll("[\\s\\p{Punct}]","");
 	}
 
 	/** Returns the median of the values, if the array is of even length, it returns the higher of the two medians */

@@ -14,6 +14,7 @@ class PersonTest {
 		assertEquals(n, "guy 1");
 		// Invalid name (empty string)
 		try {
+			@SuppressWarnings("unused")
 			Person p2 = new Person("", 1990, 2, 7);
 	        fail("Expected an error");
 	    } catch (AssertionError anError) {
@@ -21,6 +22,7 @@ class PersonTest {
 	    }
 		// Invalid name (null)
 		try {
+			@SuppressWarnings("unused")
 			Person p3 = new Person(null, 1990, 2, 7);
 	        fail("Expected an error");
 	    } catch (AssertionError anError) {
@@ -64,6 +66,7 @@ class PersonTest {
 		// Testing invalid months, one too small, one too big
 		for (int i = 0; i <= 14; i += 14) {
 			try {
+				@SuppressWarnings("unused")
 				Person p2 = new Person("guy 1", 1990, i, 7);
 		        fail("Expected an error");
 		    } catch (AssertionError anError) {
@@ -80,6 +83,7 @@ class PersonTest {
 		// Testing invalid days, one too small, one too big
 		for (int j = 0; j <= 32; j += 32) {
 			try {
+				@SuppressWarnings("unused")
 				Person p2 = new Person("guy 1", 1990, 1, j);
 		        fail("Expected an error");
 		    } catch (AssertionError anError) {
