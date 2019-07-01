@@ -5,9 +5,13 @@ import java.util.regex.*;
 
 public class Exercises {
 	
+	public static void main(String[] args) {
+		
+	}
+	
 	//String and Array Exercises
 	/** Returns true if s is the same backwards and forwards */
-	public boolean isPalindrome(String s) {
+	public static boolean isPalindrome(String s) {
 		assert s != null;
 		//Recursive method, but ends if there is one character left OR if there are two characters that are the same
 		if (s.length() == 1 || (s.length() == 2 && (s.charAt(0) == s.charAt(1)))) {
@@ -22,20 +26,18 @@ public class Exercises {
 	}
 	
 	public static String normalize(String s) {
-
-		return s.split("[\\s\\p{Punct}]").toString();
+		assert s != null;
+		String h = Arrays.toString(s.split("[\\s\\p{Punct}]"));
+		System.out.println(h);
+		return h;
 	}
 
-	/** Returns the median of the values */
+	/** Returns the median of the values, if the array is of even length, it returns the higher of the two medians */
 	public static int median(int[] values) {
 		assert values != null;
 		int[] sorted = values;
 		Arrays.sort(sorted);
-		if (values.length % 2 == 1) {
-			return sorted[(sorted.length -1)/ 2];
-		} else {
-			return (sorted[(sorted.length)/2] + sorted[sorted.length/2-1])/2;
-		}
+		return sorted[(sorted.length)/ 2];
 	}
 
 	/** Returns the number of 0's in values */
@@ -54,7 +56,7 @@ public class Exercises {
 	/** Returns the mean of the values */
 	public static double mean(int[] values) {
 		assert values != null;
-		int sum = 0;
+		double sum = 0;
 		for (int t : values) {
 			sum += t;
 		}
